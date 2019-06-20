@@ -34,22 +34,22 @@ I've designed a simple smart contract to tokenize the Lisa Mona, called Art.sol.
 pragma solidity = 0.5.0;
 
 contract Art{
-	uint public supply;
-	uint public pricePerEth;
-	mapping( address => uint ) public balance;
+  uint public supply;
+  uint public pricePerEth;
+  mapping( address => uint ) public balance;
 
-	constructor() public {
-		supply = 1000;                    // There are a total of 1000 'mini' Lisa Monas
-		pricePerEth = 100000000000000000; // One 'mini' Lisa Monas costs 0.1 Ethers
-	}
-	
-	function check() public view returns(uint) {
-		return balance[msg.sender];
-	}
-	function () external payable {
-		balance[msg.sender] += msg.value/pricePerEth; // adds 'mini' Lisa Monas to how much Eth is sent by the investor
-		supply -= msg.value/pricePerEth;              //subtracts the remaining 'mini' Lisa Monas from the total supply
-	}
+  constructor() public {
+    supply = 1000;                    // There are a total of 1000 'mini' Lisa Monas
+    pricePerEth = 100000000000000000; // One 'mini' Lisa Monas costs 0.1 Ethers
+  }
+  
+  function check() public view returns(uint) {
+    return balance[msg.sender];
+  }
+  function () external payable {
+    balance[msg.sender] += msg.value/pricePerEth; // adds 'mini' Lisa Monas to how much Eth is sent by the investor
+    supply -= msg.value/pricePerEth;              //subtracts the remaining 'mini' Lisa Monas from the total supply
+  }
 }
 ```
 
@@ -70,7 +70,7 @@ Let's start by signing up for a free 14-day trial [here](https://console.chainst
 
 Chainstack makes it easy to create a Ropsten testnet node. Normally this can take up to 12 hours, but Chainstack's bolt does all of this in only 10 Minutes. Since we don't want to spend real ether, let's deploy our smart contracts to a Ropsen node. 
 
-[!alt-text](https://syahrul12345.github.io/challenge/assets/images/1.PNG)
+![alt-text](https://syahrul12345.github.io/challenge/assets/images/1.PNG)
 
 We’ll call our project Embark, choosing the ‘Public Chain’ as our project type (naturally, because we are dealing with Ethereum, which is a public chain). Click ‘Create’, and you have your project ready. Now click the Embark project listing to get the ‘Join network’ modal. This is where you will specify various parameters to join the Ethereum network.
 
@@ -118,7 +118,7 @@ Let's also copy the keystore file to the project directory so we can easily impo
 
 Now let's import the keystore file into Metamask:
 
-![alt-text]:(https://imgur.com/tyfsl1f)
+![alt-text](https://imgur.com/tyfsl1f)
 
 Copy the address of the wallet and claim some ropsten ethers here : https://faucet.ropsten.be/
 
@@ -167,7 +167,7 @@ The ```chainstack``` argument after ```run``` tells embark to use the ```chainst
 
 Your terminal should display something like this:
 
-[!alt-text](https://imgur.com/Z8CndmQ)
+![alt-text](https://imgur.com/Z8CndmQ)
 
 Congratulations, you've successfully deployed your own contract.
 
@@ -185,7 +185,7 @@ You'll be prompted for the login token. Simply go to your terminal an type ```to
 
 You'll now be at the contract page of the Smart Contract which you just deployed. Feel free to click on any of the functions and experiment. 
 
-[!alt-text](https://imgur.com/qMDiarT)
+![alt-text](https://imgur.com/qMDiarT)
 
 ### Sending some Ethers to the smart contract
 
@@ -199,7 +199,7 @@ balance() //returns 1000
 
 Now copy the address of the Smart Contract and send some Ethers to this address. Let's start by sending 0.1 Ether. 
 
-[!alt-text]()
+![alt-text]()
 
 Going back to Embark's cockpit, let's try calling the functions check() and supply().
 
@@ -212,4 +212,4 @@ Voila! You've just purchased 1 'mini' Lisa Monas, and officially own exactly 1/1
 
 ## Conclusion
 
-By using popular frameworks such as embark combined with node
+By using popular frameworks such as embark combined with Chainstack's super fast node deployment process 
